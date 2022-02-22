@@ -1,24 +1,24 @@
-class Alumno:
-    Codigo = ""
-    Nombre = ""
-    Carrera = ""
-    Telefono = ""
-    def setCodigo(self,codigo):
-        self.Codigo = codigo
-    def setNombre(self,nombre):
-        self.Nombre = nombre
-    def setCarrera(self,carrera):
-        self.Carrera = carrera
-    def setTelefono(self,telefono):
-        self.Telefono = telefono
-    def getCodigo(self):
-        return self.Codigo
-    def getNombre(self):
-        return self.Nombre
-    def getCarrera(self):
-        return self.Carrera
-    def getTelefono(self):
-        return self.Telefono
+class Auto:
+    Modelo = ""
+    Marca = ""
+    Anio = ""
+    Serie = ""
+    def setModelo(self,modelo):
+        self.Modelo = modelo
+    def setMarca(self,marca):
+        self.Marca = marca
+    def setAnio(self,anio):
+        self.Anio = anio
+    def setSerie(self,serie):
+        self.Serie = serie
+    def getModelo(self):
+        return self.Modelo
+    def getMarca(self):
+        return self.Marca
+    def getAnio(self):
+        return self.Anio
+    def getSerie(self):
+        return self.Serie
 
 class Agenda():
     def cargarAgenda(self):
@@ -27,41 +27,41 @@ class Agenda():
     def guardarAgenda(self):
         self.archivo.close()
 
-    def agregar(self,Alumno):
-        Codigo = Alumno.getCodigo()
-        Nombre = Alumno.getNombre()
-        Carrera = Alumno.getCarrera()
-        Telefono = Alumno.getTelefono()
-        self.archivo.write(Codigo + "," + Nombre + "," + Carrera + "," + Telefono + '\n')
+    def agregar(self,Auto):
+        Modelo = Auto.getModelo()
+        Marca = Auto.getMarca()
+        Anio = Auto.getAnio()
+        Serie = Auto.getSerie()
+        self.archivo.write(Modelo + "," + Marca + "," + Anio + "," + Serie + '\n')
 
     def mostrar_agenda(self):
         archivo = open("Agenda.txt", 'r')
         for element in archivo:
             arreglo = element.split(',')
-            print("Codigo: " + arreglo[0])
-            print("Nombre: " + arreglo[1])
-            print("Carrera: " + arreglo[2])
-            print("Telefono: " + arreglo[3])
+            print("Modelo: " + arreglo[0])
+            print("Marca: " + arreglo[1])
+            print("Anio: " + arreglo[2])
+            print("Serie: " + arreglo[3])
         archivo.close()
 
 def main():
     agenda = Agenda()
     agenda.cargarAgenda()
     while True:
-        print("MENU PRINCIPAL\n1. Agregar estudiante \n2. Mostrar agenda \n0. Salir")
+        print("MENU PRINCIPAL\n1. Agregar auto \n2. Mostrar agenda \n0. Salir")
         try:
             opc = int(input("Elige la opción deseada: "))
             if opc == 1:
-                Estudiante = Alumno()
-                codigo = str(input("Dame el codigo del estudiante: "))
-                nombre = str(input("Dame el nombre del estudiante: "))
-                carrera = str(input("Dame la carrera del estudiante: "))
-                telefono = str(input("Dame el telefono del estudiante: "))
-                Estudiante.setNombre(nombre)
-                Estudiante.setCodigo(codigo)
-                Estudiante.setCarrera(carrera)
-                Estudiante.setTelefono(telefono)
-                agenda.agregar(Estudiante)
+                Coche = Auto()
+                modelo = str(input("Dame el modelo del auto: "))
+                marca = str(input("Dame el marca del auto: "))
+                anio = str(input("Dame la anio del auto: "))
+                serie = str(input("Dame el serie del auto: "))
+                Coche.setModelo(modelo)
+                Coche.setMarca(marca)
+                Coche.setAnio(anio)
+                Coche.setSerie(serie)
+                agenda.agregar(Coche)
                 agenda.guardarAgenda()
                 agenda.cargarAgenda()
                 print("")
