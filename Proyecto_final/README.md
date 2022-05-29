@@ -2,6 +2,7 @@
 
 # Descripción
 En este repositorio se encuentra el proyecto final generado en la materia de Computación Tolerante a Fallas sección D06 por el profesor Michel Emanuel Lopez Franco.
+
 La presentación se encuentra en la carpeta que dice "Presentación"
 
 # Integrantes del proyecto:
